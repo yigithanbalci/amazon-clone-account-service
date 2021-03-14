@@ -28,7 +28,6 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
         name: code-coverage-report
-        path: bin
 
   sonarcloud:
     name: SonarCloud
@@ -42,7 +41,6 @@ jobs:
         uses: actions/download-artifact@v1
         with:
           name: code-coverage-report
-          path: bin
      
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
