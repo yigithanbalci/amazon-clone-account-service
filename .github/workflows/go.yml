@@ -28,9 +28,9 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
         name: code-coverage-report
-        path: | 
-          coverage.out
-          report.json
+        path: |
+          /coverage.out
+          /report.json
 
   sonarcloud:
     name: SonarCloud
