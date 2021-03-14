@@ -11,12 +11,14 @@ import (
 	"github.com/yigithanbalci/amazon-clone-account-service/model"
 )
 
+var whenStr = "when the request is handled by the router"
+
 func TestGetAccountForWrongPath(t *testing.T) {
 	convey.Convey("given a http request for /invalid/123", t, func() {
 		req := httptest.NewRequest("GET", "/invalid/123", nil)
 		resp := httptest.NewRecorder()
 
-		convey.Convey("when the request is handled by the router", func() {
+		convey.Convey(whenStr, func() {
 			NewRouter().ServeHTTP(resp, req)
 
 			convey.Convey("then the response should be a 404", func() {
@@ -38,7 +40,7 @@ func TestGetAccount(t *testing.T) {
 		req := httptest.NewRequest("GET", "/accounts/123", nil)
 		resp := httptest.NewRecorder()
 
-		convey.Convey("when the request is handled by the router", func() {
+		convey.Convey(whenStr, func() {
 			NewRouter().ServeHTTP(resp, req)
 
 			convey.Convey("then the response should be a 200", func() {
@@ -56,7 +58,7 @@ func TestGetAccount(t *testing.T) {
 		req := httptest.NewRequest("GET", "/accounts/456", nil)
 		resp := httptest.NewRecorder()
 
-		convey.Convey("when the request is handled by the router", func() {
+		convey.Convey(whenStr, func() {
 			NewRouter().ServeHTTP(resp, req)
 
 			convey.Convey("then the response should be a 404", func() {
