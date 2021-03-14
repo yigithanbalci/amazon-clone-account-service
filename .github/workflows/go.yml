@@ -23,6 +23,12 @@ jobs:
 
     - name: Test
       run: go test -json > report.json -coverprofile=coverage.out -v ./...
+      
+    - name: Archive code coverage results
+      uses: actions/upload-artifact@v1
+      with:
+        name: code-coverage-report
+        path: bin
 
   sonarcloud:
     name: SonarCloud
